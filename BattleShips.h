@@ -37,5 +37,6 @@ public:
     void display_board();
 
     bool board_set_values(int& direction, int& x, int& y, int& i);
+    bool check_if_occupied(int& direction, int& x, int& y, int& i);
 };
 #endif // BATTLESHIP_H
