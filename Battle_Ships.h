@@ -10,6 +10,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include "Input_Coordinates.h"
 const int BOARD_DIMENSION = 10;
 const int NUM_SHIPS = 5;
 const std::string myarr[] = { "Carrier", "BattleShip", "Cruiser", "Submarine", "Destroyer" };
@@ -25,7 +26,7 @@ using std::ifstream;
 using std::istream;
 using std::stringstream;
 
-class BattleShips {
+class Battle_Ships {
 private:
     int player1_ships, player2_ships;
     vector<vector<string>> board;
@@ -36,7 +37,7 @@ public:
     void init_board_manual();
     void display_board();
 
-    bool board_set_values(int& direction, int& x, int& y, int& i);
-    bool check_if_occupied(int& direction, int& x, int& y, int& i);
+    bool board_set_values(struct Input_Coordinates& ic);
+    bool check_if_occupied(struct Input_Coordinates& ic);
 };
 #endif // BATTLESHIP_H
