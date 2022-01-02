@@ -10,6 +10,8 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <time.h>
+#include <random>
 #include "Input_Coordinates.h"
 const int BOARD_DIMENSION = 10;
 const int NUM_SHIPS = 5;
@@ -34,10 +36,14 @@ private:
 
 public:
     void init_board();
+    void reset_board();
     void init_board_manual();
     void display_board();
+    static void isMoveValid(int& tempmax_x, int& tempmax_y, struct Input_Coordinates& ic);
+    static int getRandom(int min, int max);
 
     bool board_set_values(struct Input_Coordinates& ic);
     bool check_if_occupied(struct Input_Coordinates& ic);
+    void randomize_fleet();
 };
 #endif // BATTLESHIP_H

@@ -9,5 +9,9 @@ int main() {
     cout << setw(25) << "Player 2 Board: \n" , player2.display_board();
     player1.init_board_manual();
     player1.display_board();
+  //player2.reset_board();
+    player2.randomize_fleet();
+    cout << endl;
+    player2.display_board();
     return 0;
 }

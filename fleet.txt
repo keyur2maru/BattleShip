@@ -1,16 +1,16 @@
 carrier
-0 5
+5 9
 1
 battleship
-5 3
+4 6
 0
 cruiser
-3 2
-1
+4 3
+0
 submarine
 0 0
 1
 destroyer
-3 3
-0
+3 6
+1
 
