@@ -37,13 +37,19 @@ private:
 public:
     void init_board();
     void reset_board();
-    void init_board_manual();
+    void init_fleet();
     void display_board();
     static void isMoveValid(int& tempmax_x, int& tempmax_y, struct Input_Coordinates& ic);
     static int getRandom(int min, int max);
 
     bool board_set_values(struct Input_Coordinates& ic);
     bool check_if_occupied(struct Input_Coordinates& ic);
-    void randomize_fleet();
+    static void get_run_upto(int& runUpto, string& value, struct Input_Coordinates& ic);
+    void which_ship_present(struct Input_Coordinates& ic);
+
+
+    bool init_fleet_randomize();
+    bool init_fleet_manual();
+    bool init_fleet_file();
 };
 #endif // BATTLESHIP_H
