@@ -12,6 +12,7 @@ void Battle_Ships::init_board() {
             temp.emplace_back("-");
         }
         board.emplace_back(temp);
+        missed_board.emplace_back(temp);
     }
 }
 
@@ -25,6 +26,21 @@ void Battle_Ships::display_board() {
         cout << i << " ";
         for (int j = 0; j < BOARD_DIMENSION; j++) {
             cout << board[i][j] << "  ";
+        }
+        cout << endl;
+    }
+}
+
+void Battle_Ships::display_missed_board() {
+    cout << "  ";
+    for (int i = 0; i < BOARD_DIMENSION; i++) {
+        cout << i << "  ";
+    }
+    cout << "\n";
+    for (int i = 0; i < BOARD_DIMENSION; i++) {
+        cout << i << " ";
+        for (int j = 0; j < BOARD_DIMENSION; j++) {
+            cout << missed_board[i][j] << "  ";
         }
         cout << endl;
     }
@@ -241,5 +257,22 @@ void Battle_Ships::which_ship_present() {
     }
     cout << "Ship already present: " << ship_name << " @ x = " << ic.x << " y = " << ic.y << "\n";
 }
+
+bool Battle_Ships::update_ship(struct Input_Coordinates& i_c) {
+    bool sunk = false;
+    if (board[i_c.x][i_c.y] == "-") {
+    board[i_c.x][i_c.y] = "m";
+    missed_board[i_c.x][i_c.y] = "m";
+    }
+    else if (board[i_c.x][i_c.y] != "-" && board[i_c.x][i_c.y] != "m" && board[i_c.x][i_c.y] != "*") {
+        board[i_c.x][i_c.y] = "*";
+        missed_board[i_c.x][i_c.y] = "*";
+        sunk = true;
+    }
+    return sunk;
+}
+
+
+
 
 

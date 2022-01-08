@@ -6,7 +6,6 @@
 #define INPUT_COORDINATES_H
 
 #include <iostream>
-
 using std::cout;
 struct Input_Coordinates {
     int x, y;

@@ -20,24 +20,21 @@ using std::string;
 using std::vector;
 using std::cin;
 using std::cout;
-using std::endl;
 using std::setw;
-using std::fstream;
+using std::endl;
 using std::ifstream;
-using std::istream;
-using std::stringstream;
 
 class Battle_Ships {
 private:
-    int player1_ships, player2_ships;
     vector<vector<string>> board;
-    vector<vector<int>> missed_board;
+    vector<vector<string>> missed_board;
     Input_Coordinates ic;
-    const std::string myarr[NUM_SHIPS] = {"Carrier", "BattleShip", "Cruiser", "Submarine", "Destroyer"};
 
 public:
+    const std::string myarr[NUM_SHIPS] = {"Carrier", "BattleShip", "Cruiser", "Submarine", "Destroyer"};
     void init_board();
     void display_board();
+    void display_missed_board();
     void reset_board();
 
     void init_fleet();
@@ -49,6 +46,8 @@ public:
     bool check_if_occupied();
 
     void which_ship_present();
+
+    bool update_ship(struct Input_Coordinates& ic);
     static int getRandom(int min, int max);
 };
 #endif // BATTLESHIP_H
